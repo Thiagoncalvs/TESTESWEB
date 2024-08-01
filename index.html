@@ -1,0 +1,37 @@
+<html>
+
+<head>
+	<!--SC_PAGE_CHARSET-->
+	<!--SC_JS_LIB-->
+	<link rel="stylesheet" type="text/css" href="control.css" />
+	<script type="text/javascript" src="control.js"></script>
+	<title><!--SC_PAGE_TITLE--></title>
+    <style>
+        body{
+            display: grid;
+            /* align-items: center; */
+        }
+        form{
+            background: red;
+            width: 40vw;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+<form {SC_FORM_ATTR}>
+    <!--SC_FORM_HIDDEN-->
+    <!--SC_FIELD_LABEL_my_field-->
+    <br />
+    <!--SC_FIELD_INI_my_field-->
+    <input {SC_FIELD_INFO_my_field} class="{SC_FIELD_CLASS}" type="text" />
+    <!--SC_FIELD_END_my_field-->
+    <br />
+    <input type="button" {SC_FORM_SUBMIT_INFO} />
+</form>
+</body>
+
+</html>

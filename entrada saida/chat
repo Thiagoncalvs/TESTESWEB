@@ -1,0 +1,10 @@
+<div class='Tupla_Entrada_Saida'>
+    <div id='id_entrada_saida'>$id_entrada_saida</div>
+    <div id='data_entrada_saida'>$data_formatada</div>
+    <div id='status_entrada_saida'>$status_entrada_saida</div>
+    <div id='item_id'>$nome_item</div>
+    <div id='quantidade_entrada_saida'>$quantidade_entrada_saida</div>
+    <div id='origem_destino_id'>$nome_origem_destino</div>
+    <div id='funcionario_id'>$nome_funcionario</div>
+    <div id='obs_entrada_saida'>$obs_entrada_saida</div>
+</div>

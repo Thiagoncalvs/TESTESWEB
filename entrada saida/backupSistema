@@ -1,0 +1,10 @@
+$output = "<div id='Estrutura_Principal'>";
+    $output .= "<div id='Menu_Ferramenta'><div id='Filtro_Menu'><div id='Filtro_Menu_Filho'>ID</div><div id='Filtro_Menu_Filho'>DATA</div><div id='Filtro_Menu_Filho'>QTD</div><div id='Filtro_Menu_Filho'>STATUS</div><div id='Filtro_Menu_Filho'>ORIGEM/DESTINO</div><div id='Filtro_Menu_Filho'>FUNCIONÁRIO</div><div id='Filtro_Menu_Filho'>ITEM</div><div id='Filtro_Menu_Filho'>OBS</div></div></div>";
+    $output .= "<div id='Corpo_Principal'>";
+    
+        $output .= "<div class='Tupla_Entrada_Saida'><div id='id_entrada_saida'>$id_entrada_saida</div><div id='data_entrada_saida'>$data_entrada_saida</div><div id='quantidade_entrada_saida'>$quantidade_entrada_saida</div><div id='status_entrada_saida'>$status_entrada_saida</div><div id='origem_destino_id'>$origem_destino_id</div><div id='funcionario_id'>$funcionario_id</div><div id='item_id'>$item_id</div><div id='obs_entrada_saida'>$obs_entrada_saida</div></div>";
+        
+    $output .= "</div>";
+    $output .= "</div>";
+
+    echo $output;

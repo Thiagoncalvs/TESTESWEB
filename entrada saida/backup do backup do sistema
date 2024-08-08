@@ -1,9 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    // Definir a consulta SQL base com subconsulta
+$sql_base = "
+SELECT
+    sub.id_item,
+    sub.nome_item,
+    sub.total_quantidade
+FROM
+    (SELECT
+        i.id_item,
+        i.nome_item,
+        SUM(CASE
+            WHEN es.status_entrada_saida = TRUE THEN es.quantidade_entrada_saida
+            ELSE -es.quantidade_entrada_saida
+        END) AS total_quantidade
+    FROM
+        entrada_saida es
+    JOIN
+        item i ON es.item_id = i.id_item
+    GROUP BY
+        i.id_item, i.nome_item
+    ) sub
+";
+
+// Adicionar a condição WHERE se houver uma pesquisa
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+if ($search != '') {
+    $search_lower = strtolower($search);
+    $sql_base .= " WHERE LOWER(CAST(sub.id_item AS TEXT)) LIKE '%" . $search_lower . "%' OR LOWER(sub.nome_item) LIKE '%" . $search_lower . "%'";
+}
+
+// Executar a consulta
+sc_select(meus_dados, $sql_base);
+
+// Verificar se a consulta retornou resultados
+if ({meus_dados} === false) {
+    // Erro na execução da consulta
+    echo "Erro na consulta: " . {meus_dados_erro};
+} else {
+    // Definir os estilos CSS
+    echo "
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
         *{
@@ -54,13 +88,13 @@
             }
                 #Opcoes_Menu div{
                     text-decoration: none;
-                    display: flex;
+					display: flex;
                 }
                 #Opcoes_Menu div:hover{
                     background: #0000000d;
                 }
                 #Opcoes_Menu div a{
-                    padding: 20px;
+					padding: 20px;
                     text-decoration: none;
                     color: #646464;
                 }
@@ -165,48 +199,51 @@
             background: #ff000033;
         }
     </style>
-</head>
-<body>
-    <div id='Estrutura_Principal'>
-        <div id="Menu_Cabecalho">
-            <div id="Logo_Nome"><a href="http://127.0.0.1:5500/">ALMOX</a></div>
-            <div id="Opcoes_Menu">
-                <div id="Historico_Entrada_Saida"><a href='http://127.0.0.1:5500/historico.html'>Histórico</a></div>
-                <div id="Registro_Entrada_Saida"><a href='http://127.0.0.1:5500/registro.html'>Registrar</a></div>
-                <div id="Cadastros_Menu">CADASTROS</div>
-                <div id="Dropdown_Menu_Cadastros">
-                    <div id="Dropdown_Menu_Cadastros_Filho"><a href="http://127.0.0.1:5500/cadastro_itens">Itens</a></div>
-                    <div id="Dropdown_Menu_Cadastros_Filho"><a href="http://127.0.0.1:5500/cadastro_itens">Itens</a></div>
-                    <div id="Dropdown_Menu_Cadastros_Filho"><a href="http://127.0.0.1:5500/cadastro_itens">Itens</a></div>
-                </div>
-            </div>
-            <div id="Login_Config">SD T.SILVA</div>
-        </div>
-        <div id='Menu_Ferramenta'>
-            <div id="Indice">
-                <div id="Indice_Filho">ID</div>
-                <div id="Indice_Filho">QTD</div>
-                <div id="Indice_Filho">ITEM</div>
-            </div>
-            <input type='text' id='searchBar' placeholder='Pesquisar...'>
-        </div>
-        <div id="Corpo_Principal">
-            <div class='Item'><div id="Id_Item">40</div><div id="QTD_Item">-100</div><div id="Nome_Item">Capacete Gallet</div></div>
-            <div class='Item'><div id="Id_Item">45</div><div id="QTD_Item">-53</div><div id="Nome_Item">Tripe para salvamento e resgate em espaço confinado</div></div>
-            <div class='Item active'><div id="Id_Item">30</div><div id="QTD_Item">-1000</div><div id="Nome_Item">Monitor UND</div></div>
-            <div class='Item'><div id="Id_Item">40</div><div id="QTD_Item">-100</div><div id="Nome_Item">Capacete Gallet</div></div>
-            <div class='Item'><div id="Id_Item">45</div><div id="QTD_Item">-53</div><div id="Nome_Item">Tripe para salvamento e resgate em espaço confinado</div></div>
-            <div class='Item active'><div id="Id_Item">30</div><div id="QTD_Item">-1000</div><div id="Nome_Item">Monitor UND</div></div>
-            <div class='Item'><div id="Id_Item">40</div><div id="QTD_Item">-100</div><div id="Nome_Item">Capacete Gallet</div></div>
-            <div class='Item'><div id="Id_Item">45</div><div id="QTD_Item">-53</div><div id="Nome_Item">Tripe para salvamento e resgate em espaço confinado</div></div>
-            <div class='Item active'><div id="Id_Item">30</div><div id="QTD_Item">-1000</div><div id="Nome_Item">Monitor UND</div></div>
-            <div class='Item'><div id="Id_Item">40</div><div id="QTD_Item">-100</div><div id="Nome_Item">Capacete Gallet</div></div>
-            <div class='Item'><div id="Id_Item">45</div><div id="QTD_Item">-53</div><div id="Nome_Item">Tripe para salvamento e resgate em espaço confinado</div></div>
-            <div class='Item active'><div id="Id_Item">30</div><div id="QTD_Item">-1000</div><div id="Nome_Item">Monitor UND</div></div>
-            <div class='Item'><div id="Id_Item">40</div><div id="QTD_Item">-100</div><div id="Nome_Item">Capacete Gallet</div></div>
-            <div class='Item'><div id="Id_Item">45</div><div id="QTD_Item">-53</div><div id="Nome_Item">Tripe para salvamento e resgate em espaço confinado</div></div>
-            <div class='Item active'><div id="Id_Item">30</div><div id="QTD_Item">-1000</div><div id="Nome_Item">Monitor UND</div></div>
-        </div>
-    </div>
-</body>
-</html>
+    ";
+    
+    // Adicionar a barra de pesquisa com auto-complete
+    // Iniciar a div pai
+    $output = "<div id='Estrutura_Principal'>";
+    $output .= "<div id='Menu_Cabecalho'><div id='Logo_Nome'><a href='https://sistemas.cbm.ap.gov.br/scriptcase/app/SIS_ALMOXARIFADO/index/'>ALMOX</a></div><div id='Opcoes_Menu'><div id='Historico_Entrada_Saida'><a href='https://sistemas.cbm.ap.gov.br/scriptcase/app/SIS_ALMOXARIFADO/historico/'>Histórico</a></div><div id='Registro_Entrada_Saida'><a href='https://sistemas.cbm.ap.gov.br/scriptcase/app/SIS_ALMOXARIFADO/registro/'>Registrar</a></div><div id='Cadastros_Menu'>CADASTROS</div></div><div id='Login_Config'>SD T.SILVA</div></div>";
+    $output .= "<div id='Menu_Ferramenta'><div id='Indice'><div id='Indice_Filho'>ID</div><div id='Indice_Filho'>QTD</div><div id='Indice_Filho'>ITEM</div></div><input type='text' id='searchBar' placeholder='Pesquisar...' onkeydown='filterResults(event)'></div>";
+    $output .= "<div id='Corpo_Principal'>";
+    
+    // Loop através dos resultados
+    while (!{meus_dados}->EOF) {
+        // Acessar os campos da linha atual
+        $item_id = {meus_dados}->fields[0];
+        $nome_item = {meus_dados}->fields[1];
+        $total_quantidade = {meus_dados}->fields[2];
+
+        // Verificar se o total_quantidade é 0 ou negativo
+        $active_class = ($total_quantidade <= 0) ? ' active' : '';
+        
+        // Concatenar cada item_id com o resultado do cálculo
+        $output .= "<div class='Item$active_class'><div id='Id_Item'>$item_id</div><div id='QTD_Item'>$total_quantidade</div><div id='Nome_Item'>$nome_item</div></div>";
+        
+        // Avançar para a próxima linha
+        {meus_dados}->MoveNext();
+    }
+    
+    // Fechar a div pai
+    $output .= "</div>";
+    $output .= "</div>";
+    
+    // Mostrar a div pai com todos os itens
+    echo $output;
+    
+    // Liberar o conjunto de resultados
+    {meus_dados}->Close();
+}
+
+// Adicionar a função JavaScript para filtrar os resultados ao pressionar Enter
+echo "
+<script>
+function filterResults(event) {
+    if (event.key === 'Enter') {
+        var input = document.getElementById('searchBar').value;
+        window.location.href = '?search=' + input;
+    }
+}
+</script>
+";

@@ -1,0 +1,40 @@
+// Inicializar a variável $output
+$output = "";
+
+echo "
+
+    ";
+
+	$output .= "";
+    $output .= "";
+    $output .= "";
+    $output .= "";
+// Conectar ao banco de dados usando a macro do Scriptcase
+sc_select(meus_dados, "SELECT * FROM entrada_saida ORDER BY data_entrada_saida DESC");
+
+if ({meus_dados} === false) {
+    $output = "Erro na consulta ao banco de dados: " . {meus_dados_erro};
+} else {
+    // Verifica se há resultados e os armazena no $output
+    if ({meus_dados}->EOF) {
+        $output = "0 resultados";
+    } else {
+        while (!{meus_dados}->EOF) {
+            $id_entrada_saida = {meus_dados}->fields[0];
+            $data_entrada_saida = {meus_dados}->fields[1];
+            $quantidade_entrada_saida = {meus_dados}->fields[2];
+            $status_entrada_saida = {meus_dados}->fields[3];
+            $origem_destino_id = {meus_dados}->fields[4];
+            $funcionario_id = {meus_dados}->fields[5];
+            $item_id = {meus_dados}->fields[6];
+            $obs_entrada_saida = {meus_dados}->fields[7];
+            
+            $output .= "";
+            {meus_dados}->MoveNext();
+        }
+        {meus_dados}->Close();
+    }
+}
+    $output .= "</div></div>";
+// Exibir o resultado
+echo $output;

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* outline: 1px dashed red; */
+        }
+/* Estrutura principal do site */
+        #Estrutura_Principal {
+            /* background: red; */
+            padding: 10px;
+            text-transform: uppercase;
+            color: #646464;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-style: normal;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+/* MENU CABECALHO */
+        #Menu_Cabecalho{
+            display: flex;
+            flex-shrink: 0;
+            /* background: red; */
+            border-bottom: 5px solid #64646440;
+            /* margin-bottom: 20px; */
+            user-select: none;
+        }
+            #Logo_Nome{
+                /* background: #0acf97; */
+                display: flex;
+            }
+            #Logo_Nome a{
+                /* outline: 1px dashed red; */
+                text-decoration: none;
+                color: #646464;
+                padding: 20px 50px 20px 50px;
+            }
+            #Opcoes_Menu{
+                /* background: rgb(58, 226, 43); */
+                flex-grow: 1;
+                display: flex;
+                justify-content: flex-start;
+            }
+                #Opcoes_Menu div{
+                    text-decoration: none;
+                    display: flex;
+                }
+                #Opcoes_Menu div:hover{
+                    background: #0000000d;
+                }
+                #Opcoes_Menu div a{
+                    padding: 20px;
+                    text-decoration: none;
+                    color: #646464;
+                }
+                #Opcoes_Menu #Cadastros_Menu{
+                    padding: 20px;
+                }
+            #Login_Config{
+                /* background: #fda501; */
+                padding: 20px;
+            }
+            #Login_Config:hover{
+                background: #0000000d;
+            }
+/* CORPO PRINCIPAL */
+        #Corpo_Principal{
+            /* background: blue; */
+            /* border-top: 2px solid hsla(0, 0%, 39%, 0.251); */
+            width: 100%;
+            height: calc(100% - 60px); /* Ajustando a altura */
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+        }
+        #Corpo_Principal form{
+            /* background: red; */
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #64646480;
+            font-size: 1em;
+        }
+        #Corpo_Principal form *{
+            /* background: green; */
+            /* color: aliceblue; */
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        #id_entrada_saida, #data_entrada_saida{
+            color: #646464;
+            text-transform: uppercase;
+            font-weight: 500;
+            border: none;
+        }
+        #id_entrada_saida:focus, #data_entrada_saida:focus{
+            outline: none;
+        }
+        #status_entrada_saida, #item_id, #origem_destino_id, #funcionario_id{
+            min-width: 200px;
+            max-width: 700px;
+            background: none;
+            border: none;
+            border-bottom: 5px solid #64646440;
+            color: #646464;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+        }
+        #status_entrada_saida:focus, #item_id:focus, #origem_destino_id:focus, #funcionario_id:focus{
+            outline: none;
+            border-bottom: 5px solid #ff000040;
+            color: #ff0000f2;
+        }
+        #quantidade_entrada_saida{
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+        #quantidade_entrada_saida::-webkit-inner-spin-button { 
+            -webkit-appearance: none;
+        }
+        #obs_entrada_saida{
+            width: 700px;
+        }
+        #quantidade_entrada_saida, #obs_entrada_saida{
+            border: none;
+            border-bottom: 5px solid #64646440;
+            padding-bottom: 10px;
+            color: #646464;
+            text-transform: uppercase;
+        }
+        #quantidade_entrada_saida:focus, #obs_entrada_saida:focus{
+            outline: none;
+        }
+        #Botao_Formulario{
+            align-self: center;
+            text-transform: uppercase;
+            padding: 20px 40px;
+            background: none;
+            border: none;
+            border-bottom: 5px solid #64646440;
+            color: #646464;
+        }
+        #Botao_Formulario:focus:focus, #Botao_Formulario:hover{
+            border-bottom: 5px solid #ff000040;
+            color: #ff0000f2;
+            outline: none;
+        }
+/*CONFIGURAÇÕES FORMULÁRIO*/
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id='Estrutura_Principal'>
+        <div id="Menu_Cabecalho">
+            <div id="Logo_Nome"><a href="http://127.0.0.1:5500/">ALMOX</a></div>
+            <div id="Opcoes_Menu">
+                <div id="Historico_Entrada_Saida"><a href='http://127.0.0.1:5500/historico.html'>Histórico</a></div>
+                <div id="Registro_Entrada_Saida"><a href='http://127.0.0.1:5500/registro.html'>Registrar</a></div>
+                <div id="Cadastros_Menu">CADASTROS</div>
+            </div>
+            <div id="Login_Config">SD T.SILVA</div>
+        </div>
+        <div id="Corpo_Principal">
+            <form method="POST" action="">
+                <label for="id_entrada_saida">ID</label>
+                    <input type="text" id="id_entrada_saida" name="id_entrada_saida" value="'.$uniqueHexId.'" readonly required>
+                <label for="data_entrada_saida">Data/Hora</label>
+                    <input type="text" id="data_entrada_saida" name="data_entrada_saida" value="'.$dataHora.'" readonly required>
+                <label for="status_entrada_saida">Status</label>
+                    <select id="status_entrada_saida" name="status_entrada_saida" required autofocus>
+                        <option value=""></option>
+                        <option value="true">Entrada</option>
+                        <option value="false">Saída</option>
+                    </select>
+                <label for="item_id">Item</label>
+                <select id="item_id" name="item_id" required >
+                    <option value=""></option>
+                    <option value="">Tripe para salvamento e resgate em espaço confinado</option>
+                </select>
+                <span id="total_quantidade_span">Quantidade Total: 1000</span>
+                <label for="quantidade_entrada_saida">QTD</label>
+                    <input type="number" id="quantidade_entrada_saida" name="quantidade_entrada_saida" value="" min="1" required>
+                <label for="origem_destino_id">Origem/Destino</label>
+                    <select id="origem_destino_id" name="origem_destino_id" required>
+                        <option value=""></option>
+                        <option value="">Tripe para salvamento e resgate em esdddddddddddddddpaço confinado</option>
+                    </select>
+                <label for="funcionario_id">Funcionário</label>
+                    <select id="funcionario_id" name="funcionario_id" required >
+                        <option value=""></option>
+                        <option value="">Tripe para salvamento e resgate em espaço confinado</option>
+                    </select>
+            
+                <label for="obs_entrada_saida">OBS</label>
+                    <input type="text" id="obs_entrada_saida" name="obs_entrada_saida" value="">        
+                <button type="submit" id="Botao_Formulario">Registrar</button>
+            </form>
+        </div>
+    </div>   
+</body>
+</html>

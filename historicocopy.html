@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* outline: 1px dashed red; */
+        }
+/* Estrutura principal do site */
+        #Estrutura_Principal {
+            /* background: red; */
+            padding: 10px;
+            text-transform: uppercase;
+            color: #646464;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-style: normal;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+/* MENU CABECALHO */
+        #Menu_Cabecalho{
+            display: flex;
+            flex-shrink: 0;
+            /* background: red; */
+            border-bottom: 5px solid #64646440;
+            margin-bottom: 20px;
+            user-select: none;
+        }
+            #Logo_Nome{
+                /* background: #0acf97; */
+                display: flex;
+            }
+            #Logo_Nome a{
+                /* outline: 1px dashed red; */
+                text-decoration: none;
+                color: #646464;
+                padding: 20px 50px 20px 50px;
+            }
+            #Opcoes_Menu{
+                /* background: rgb(58, 226, 43); */
+                flex-grow: 1;
+                display: flex;
+                justify-content: flex-start;
+            }
+                #Opcoes_Menu div{
+                    text-decoration: none;
+					display: flex;
+                }
+                #Opcoes_Menu div:hover{
+                    background: #0000000d;
+                }
+                #Opcoes_Menu div a{
+					padding: 20px;
+                    text-decoration: none;
+                    color: #646464;
+                }
+                #Opcoes_Menu #Cadastros_Menu{
+                    padding: 20px;
+                }
+            #Login_Config{
+                /* background: #fda501; */
+                padding: 20px;
+            }
+            #Login_Config:hover{
+                background: #0000000d;
+            }
+/* MENU FERRAMENTA */
+        #Menu_Ferramenta{
+            /* background: green; */
+            display: flex;
+            flex-shrink: 0;
+            min-height: 44px;
+        }
+
+/* CORPO PRINCIPAL */
+        #Corpo_Principal{
+            /* background: red; */
+            margin-top: 10px;
+            border-top: 2px solid hsla(0, 0%, 39%, 0.251);
+            width: 100%;
+            height: calc(100% - 60px); /* Ajustando a altura */
+            overflow: auto;
+        }
+        .Tupla_Entrada_Saida {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            user-select: none;
+        }
+        .Tupla_Entrada_Saida:hover{
+            background: #0000000d;
+        }
+        .Tupla_Entrada_Saida div{
+            /* background: red; */
+            margin-right: 10px;
+            min-height: 30px;
+            text-align: left;
+            padding-left: 5px;
+            border-left: 5px solid #64646440;
+            display: flex;
+            align-items: center;
+            /* word-break: break-all; */
+        }
+        #id_entrada_saida{
+            width: 120px;
+        }
+        #data_entrada_saida{
+            width: 150px;
+        }
+        #status_entrada_saida{
+            width: 100px;
+        }
+        #item_id{
+            width: 300px;
+        }
+        #quantidade_entrada_saida{
+            width: 100px;
+        }
+        #origem_destino_id{
+            width: 150px;
+        }
+        #funcionario_id{
+            width: 150px;
+        }
+        #obs_entrada_saida{
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div id='Estrutura_Principal'>
+        <div id='Menu_Cabecalho'>
+            <div id='Logo_Nome'><a href='http://127.0.0.1:5500/'>ALMOX</a></div>
+            <div id='Opcoes_Menu'>
+                <div id='Historico_Entrada_Saida'><a href='http://127.0.0.1:5500/historico.html'>Histórico</a></div>
+                <div id='Registro_Entrada_Saida'><a href='http://127.0.0.1:5500/registro.html'>Registrar</a></div>
+                <div id='Cadastros_Menu'>CADASTROS</div>
+            </div>
+            <div id='Login_Config'>SD T.SILVA</div>
+        </div>
+        <div id='Corpo_Principal'>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24 às 10:15 da manhã num dia de verão e de madrugada</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet VERMELHO COM DETALHE DORADO</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>4GBM/GMAF - FAZENDINHA</div>
+                <div id='funcionario_id'>SD QPCBM T. SILVA</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24 às 10:15 da manhã num dia de verão e de madrugada</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet VERMELHO COM DETALHE DORADO</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>4GBM/GMAF - FAZENDINHA</div>
+                <div id='funcionario_id'>SD QPCBM T. SILVA</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24 às 10:15 da manhã num dia de verão e de madrugada</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet VERMELHO COM DETALHE DORADO</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>4GBM/GMAF - FAZENDINHA</div>
+                <div id='funcionario_id'>SD QPCBM T. SILVA</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24 às 10:15 da manhã num dia de verão e de madrugada</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet VERMELHO COM DETALHE DORADO</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>4GBM/GMAF - FAZENDINHA</div>
+                <div id='funcionario_id'>SD QPCBM T. SILVA</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>CETI</div>
+                <div id='funcionario_id'>SGT Alan</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24 às 10:15 da manhã num dia de verão e de madrugada</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Entrada</div>
+                <div id='item_id'>Capacete Gallet VERMELHO COM DETALHE DORADO</div>
+                <div id='quantidade_entrada_saida'>55</div>
+                <div id='origem_destino_id'>4GBM/GMAF - FAZENDINHA</div>
+                <div id='funcionario_id'>SD QPCBM T. SILVA</div>
+                <div id='obs_entrada_saida'>A saída das 50 und</div>
+            </div>
+            <div class='Tupla_Entrada_Saida'>
+                <div id='id_entrada_saida'>889FEFA6</div>
+                <div id='data_entrada_saida'>05/08/2024 09:17</div>
+                <div id='status_entrada_saida'>Saída</div>
+                <div id='item_id'>Mesa UND</div>
+                <div id='quantidade_entrada_saida'>5000</div>
+                <div id='origem_destino_id'>FORNECEDOR ALEATÓRIO DE EXEMPLO</div>
+                <div id='funcionario_id'>SD T. Silva</div>
+                <div id='obs_entrada_saida'>A saída das 50 und de EPRA foi no dia 31/07/24</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
